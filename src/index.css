@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.underline-bg {
+  background: linear-gradient(transparent, transparent 22px, #4b5563 22px);
+  background-size: 100% 24px;
+  position: relative;
+}
+
+.notes-sidestyle-dotted {
+  background: radial-gradient(#575450 8px, transparent 1px) repeat-y;
+  background-size: 24px 24px;
+}
+
+.lato-black {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+}
+
+.element {
+  background: black;
+  border-radius: 12px;
+  padding: 12px;
+  color:white;
+  width: fit-content;
+  height: 200px;
+  width: 300px;
+  overflow: scroll;
+}
+
+.element2 {
+ 
+  background: black;
+  border-radius: 12px;
+  padding: 12px;
+  color:white;
+  width: fit-content;
+  height: 200px;
+  width: 300px;
+  overflow: scroll;
+}
+
