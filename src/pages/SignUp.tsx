@@ -2,6 +2,7 @@ import InputContainer from "@/components/InputContainer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { User } from "@/types";
+import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router";
 
@@ -19,14 +20,13 @@ export default function SignUp() {
   }> = async (data) => {
     console.log(data);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const res = await fetch(`http://localhost:3000/api/users/signup`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        withCredentials: "true",
-      },
-      body: JSON.stringify(data),
-    });
+    const res = await axios.post(
+      `${import.meta.env.VITE_NOTES_SERVER_BASE_URL}/api/users/signup`,
+      data,
+      {
+        withCredentials: true,
+      }
+    );
 
     navigate("/");
   };

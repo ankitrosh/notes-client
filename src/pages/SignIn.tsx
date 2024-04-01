@@ -24,9 +24,13 @@ export default function SignIn() {
       //     },
       //     body: JSON.stringify(data),
       //   });
-      await axios.post(`http://localhost:3000/api/users/login`, data, {
-        withCredentials: true,
-      });
+      await axios.post(
+        `${import.meta.env.VITE_NOTES_SERVER_BASE_URL}/api/users/login`,
+        data,
+        {
+          withCredentials: true,
+        }
+      );
 
       navigate("/");
     } catch (err) {

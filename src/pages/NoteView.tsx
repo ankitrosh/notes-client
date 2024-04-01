@@ -24,7 +24,7 @@ const NoteView = () => {
   const getNotes = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/notes/${noteId}`,
+        `${import.meta.env.VITE_NOTES_SERVER_BASE_URL}/api/notes/${noteId}`,
         {
           withCredentials: true,
         }
@@ -51,9 +51,13 @@ const NoteView = () => {
   }, [note, setValue]);
   const onSubmit: SubmitHandler<Note> = async (data) => {
     try {
-      await axios.patch(`http://localhost:3000/api/notes/${noteId}`, data, {
-        withCredentials: true,
-      });
+      await axios.patch(
+        `${import.meta.env.VITE_NOTES_SERVER_BASE_URL}/api/notes/${noteId}`,
+        data,
+        {
+          withCredentials: true,
+        }
+      );
 
       navigate(0);
     } catch (err) {
@@ -62,9 +66,12 @@ const NoteView = () => {
   };
   const onDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/notes/${noteId}`, {
-        withCredentials: true,
-      });
+      await axios.delete(
+        `${import.meta.env.VITE_NOTES_SERVER_BASE_URL}/api/notes/${noteId}`,
+        {
+          withCredentials: true,
+        }
+      );
       navigate("/");
     } catch (err) {
       console.log(err);
